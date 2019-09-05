@@ -2,7 +2,12 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
-
+axios.get('https://api.github.com/users/Oluwa-Femi')
+.then (data => {
+  console.log('data: ', data)
+  const myInfo = data.data;
+  console.log('UserInfo: ', myInfo)
+})
 
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
