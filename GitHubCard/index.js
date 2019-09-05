@@ -30,11 +30,30 @@ axios.get('https://api.github.com/users/Oluwa-Femi')
           , manually find some other users' github handles, or use the list found 
           at the bottom of the page. Get at least 5 different Github usernames and add them as
           Individual strings to the friendsArray below.
-          
           Using that array, iterate over it, requesting data for each user, creating a new card for each
           user, and adding that card to the DOM.
 */
 
+const followersArray = [
+
+  'annawinther',
+  'CarnunMP',
+  'vunderkind',
+  'mikeattara',
+  'kip-guile',
+  'samuel-mpere'
+];
+
+
+followersArray.forEach(user => {
+  axios.get(`https://api.github.com/users/${user}`)
+    .then (data => {
+      const card = cardFunc(data.data)
+      const cards = document.querySelector('.cards')
+      cards.appendChild(card)
+    }) 
+
+})
 
 
 /* Step 3: Create a function that accepts a single object as its only argument,
