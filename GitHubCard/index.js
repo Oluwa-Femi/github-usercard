@@ -7,8 +7,14 @@ axios.get('https://api.github.com/users/Oluwa-Femi')
   console.log('data: ', data)
   const myInfo = data.data;
   console.log('UserInfo: ', myInfo)
-})
 
+/* Step 4: Pass the data received from Github into your function, 
+           create a new component and add it to the DOM as a child of .cards
+*/
+    const cards = document.querySelector('.cards')
+    const cardInfo = cardFunc(myInfo)
+    cards.appendChild(cardInfo)
+  })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -17,9 +23,7 @@ axios.get('https://api.github.com/users/Oluwa-Femi')
    Skip to Step 3.
 */
 
-/* Step 4: Pass the data received from Github into your function, 
-           create a new component and add it to the DOM as a child of .cards
-*/
+
 
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
@@ -31,7 +35,7 @@ axios.get('https://api.github.com/users/Oluwa-Femi')
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -75,7 +79,7 @@ console.log(cards);
     name.classList.add('name')
     userName.classList.add('username')
 
-    //Append children 
+    //Append children
     card.appendChild(img)
     card.appendChild(cardInfo)
     cardInfo.appendChild(name)
@@ -98,7 +102,7 @@ console.log(cards);
     following.textContent = `Following: ${data.following}`
     bio.textContent = data.bio 
 
-    return cards
+    return card
   }
 
 /* List of LS Instructors Github username's: 
